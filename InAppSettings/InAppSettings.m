@@ -9,6 +9,8 @@
 #import "InAppSettings.h"
 #import "InAppSettingsPSMultiValueSpecifierTable.h"
 
+#import <SafariServices/SafariServices.h>
+
 NSString *const InAppSettingsViewControllerDelegateWillDismissedNotification = @"InAppSettingsViewControllerDelegateWillDismissedNotification";
 NSString *const InAppSettingsViewControllerDelegateDidDismissedNotification = @"InAppSettingsViewControllerDelegateDidDismissedNotification";
 NSString *const InAppSettingsValueChangeNotification = @"InAppSettingsValueChangeNotification";

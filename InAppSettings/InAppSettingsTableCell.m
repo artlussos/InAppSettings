@@ -93,7 +93,7 @@
         valueSize.width = valueMaxWidth;
     }
 
-    if(!InAppSettingsUseNewMultiValueLocation && [self.setting isType:InAppSettingsPSMultiValueSpecifier] && [[self.setting localizedTitle] length] == 0){
+    if(!(InAppSettingsUseNewMultiValueLocation) && [self.setting isType:InAppSettingsPSMultiValueSpecifier] && [[self.setting localizedTitle] length] == 0) {
         valueFrame.origin.x = InAppSettingsCellPadding;
     }else{
         valueFrame.origin.x = CGRectGetWidth(self.contentView.bounds)-valueSize.width-InAppSettingsCellPadding;

@@ -11,17 +11,17 @@
 #define InAppSettingsRootFile @"Root"
 #define InAppSettingsProjectName @"InAppSettings"
 
-#define InAppSettingsFontSize 17.0f
+#define InAppSettingsFontSize 15.0f
 #define InAppSettingsCellPadding 9.0f
 #define InAppSettingsTablePadding 10.0f
 #define InAppSettingsCellTextFieldMinX 115.0f
 #define InAppSettingsCellToggleSwitchWidth 94.0f
 #define InAppSettingsTotalCellPadding InAppSettingsCellPadding*2
 #define InAppSettingsTotalTablePadding InAppSettingsTablePadding*2
-#define InAppSettingsCellTitleMaxWidth CGRectGetWidth(self.bounds)-(InAppSettingsTotalTablePadding+InAppSettingsTotalCellPadding)
+#define InAppSettingsCellTitleMaxWidth CGRectGetWidth(self.bounds)//-(InAppSettingsTotalTablePadding+InAppSettingsTotalCellPadding)
 #define InAppSettingsBoldFont [UIFont boldSystemFontOfSize:InAppSettingsFontSize]
 #define InAppSettingsNormalFont [UIFont systemFontOfSize:InAppSettingsFontSize]
-#define InAppSettingsBlue [UIColor grayColor];
+#define InAppSettingsBlue [UIColor colorWithRed:0.22f green:0.33f blue:0.53f alpha:1.0f];
 
 #define InAppSettingsBundlePath [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"]
 #define InAppSettingsFullPlistPath(file) \

@@ -114,7 +114,12 @@
     
     //create text field
     self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
-    self.textField.textColor = InAppSettingsBlue;
+    if (@available(iOS 13.0, *)) {
+        self.textField.textColor = [UIColor systemBlueColor];
+    } else {
+        self.textField.textColor = InAppSettingsBlue;
+    }
+
     self.textField.adjustsFontSizeToFitWidth = YES;
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
@@ -125,6 +130,5 @@
     [self.textField addTarget:self action:@selector(textChangeAction) forControlEvents:UIControlEventEditingChanged];
     [self.contentView addSubview:self.textField];
 }
-
 
 @end

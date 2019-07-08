@@ -47,8 +47,6 @@
     return self;
 }
 
-
-
 @end
 
 @implementation InAppSettingsReader
@@ -86,6 +84,5 @@
     }
     return self;
 }
-
 
 @end

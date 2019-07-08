@@ -52,8 +52,6 @@
 - (void)layoutSubviews{
 	[super layoutSubviews];
 
-//    self.contentView.backgroundColor = [UIColor blueColor];
-
     // title view
 //iOS7: Updating sizeWithFont (depreciated) to sizeWithAttributes
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
@@ -147,16 +145,19 @@
     }
     self.titleLabel.highlightedTextColor = [UIColor whiteColor];
     self.titleLabel.backgroundColor = [UIColor clearColor];
-//    self.titleLabel.backgroundColor = [UIColor greenColor];
     [self.contentView addSubview:self.titleLabel];
-    
+
     //setup value label
     self.valueLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.valueLabel.font = InAppSettingsNormalFont;
-    self.valueLabel.textColor = InAppSettingsBlue;
+    if (@available(iOS 13.0, *)) {
+        self.valueLabel.textColor = [UIColor systemBlueColor];
+    } else {
+        self.valueLabel.textColor = InAppSettingsBlue;
+    }
+
     self.valueLabel.highlightedTextColor = [UIColor whiteColor];
     self.valueLabel.backgroundColor = [UIColor clearColor];
-//    self.valueLabel.backgroundColor = [UIColor redColor];    
     self.valueLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [self.contentView addSubview:self.valueLabel];
 }

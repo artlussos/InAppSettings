@@ -29,7 +29,6 @@
     self.title = [self.setting localizedTitle];
 }
 
-
 #pragma mark Value
 
 - (id)getValue{
@@ -74,13 +73,20 @@
     }
 	if([cellValue isEqual:[self getValue]]){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        cell.textLabel.textColor = InAppSettingsBlue;
+        if (@available(iOS 13.0, *)) {
+            cell.textLabel.textColor = [UIColor systemBlueColor];
+        } else {
+            cell.textLabel.textColor = InAppSettingsBlue;
+        }
     }
     else{
         cell.accessoryType = UITableViewCellAccessoryNone;
-        cell.textLabel.textColor = [UIColor blackColor];
+        if (@available(iOS 13.0, *)) {
+            cell.textLabel.textColor =  [UIColor labelColor];
+        } else {
+            cell.textLabel.textColor = [UIColor blackColor];
+        }
     }
-    
     return cell;
 }
 

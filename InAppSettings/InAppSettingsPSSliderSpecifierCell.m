@@ -72,5 +72,4 @@
     [self.contentView addSubview:self.valueSlider];
 }
 
-
 @end

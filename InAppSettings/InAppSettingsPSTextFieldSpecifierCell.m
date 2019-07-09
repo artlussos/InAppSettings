@@ -114,8 +114,7 @@
     
     //create text field
     self.textField = [[UITextField alloc] initWithFrame:CGRectZero];
-    self.textField.textColor = [[self contentView] tintColor];
-
+    self.textField.textColor = InAppSettingsBlue;
     self.textField.adjustsFontSizeToFitWidth = YES;
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     

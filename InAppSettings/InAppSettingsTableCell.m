@@ -150,8 +150,7 @@
     //setup value label
     self.valueLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.valueLabel.font = InAppSettingsNormalFont;
-    self.valueLabel.textColor = [[self contentView] tintColor];
-
+    self.valueLabel.textColor = InAppSettingsBlue;
     self.valueLabel.highlightedTextColor = [UIColor whiteColor];
     self.valueLabel.backgroundColor = [UIColor clearColor];
     self.valueLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;

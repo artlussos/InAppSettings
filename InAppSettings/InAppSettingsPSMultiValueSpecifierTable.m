@@ -73,8 +73,7 @@
     }
 	if([cellValue isEqual:[self getValue]]){
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        cell.tintColor = [UIColor systemBlueColor];
-        cell.textLabel.textColor = [UIColor systemBlueColor];
+        cell.textLabel.textColor = [[self view] tintColor];
     }
     else{
         cell.accessoryType = UITableViewCellAccessoryNone;

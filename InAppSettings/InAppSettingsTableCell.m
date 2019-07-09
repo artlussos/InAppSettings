@@ -150,11 +150,7 @@
     //setup value label
     self.valueLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     self.valueLabel.font = InAppSettingsNormalFont;
-    if (@available(iOS 13.0, *)) {
-        self.valueLabel.textColor = [UIColor systemBlueColor];
-    } else {
-        self.valueLabel.textColor = InAppSettingsBlue;
-    }
+    self.valueLabel.textColor = [UIColor systemBlueColor];
 
     self.valueLabel.highlightedTextColor = [UIColor whiteColor];
     self.valueLabel.backgroundColor = [UIColor clearColor];

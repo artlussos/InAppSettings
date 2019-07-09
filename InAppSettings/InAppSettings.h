@@ -6,11 +6,11 @@
 //  Copyright 2009 InScopeApps{+}. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "InAppSettingsTableCell.h"
+#import "InAppSettingsConstants.h"
 #import "InAppSettingsReader.h"
 #import "InAppSettingsSpecifier.h"
-#import "InAppSettingsConstants.h"
+#import "InAppSettingsTableCell.h"
+#import <UIKit/UIKit.h>
 
 extern NSString *const InAppSettingsViewControllerDelegateWillDismissedNotification;
 extern NSString *const InAppSettingsViewControllerDelegateDidDismissedNotification;
@@ -36,11 +36,11 @@ extern NSString *const InAppSettingsTapNotification;
 
 // modal view
 - (IBAction)dismissModalView:(id)sender;
-- (void)addDoneButton;
+- (void)    addDoneButton;
 
 //keyboard notification
 - (void)registerForKeyboardNotifications;
-- (void)keyboardWillShow:(NSNotification*)notification;
-- (void)keyboardWillHide:(NSNotification*)notification;
+- (void)keyboardWillShow:(NSNotification *)notification;
+- (void)keyboardWillHide:(NSNotification *)notification;
 
 @end

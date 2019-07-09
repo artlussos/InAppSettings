@@ -6,8 +6,8 @@
 //  Copyright 2009 InScopeApps{+}. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "InAppSettingsTableCell.h"
+#import <UIKit/UIKit.h>
 
 @interface InAppSettingsPSChildPaneSpecifierCell : InAppSettingsTableCell
 

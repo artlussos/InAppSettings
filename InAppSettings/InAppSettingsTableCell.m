@@ -6,8 +6,8 @@
 //  Copyright 2009 InScopeApps{+}. All rights reserved.
 //
 
-#import "InAppSettingsTableCell.h"
 #import "InAppSettingsConstants.h"
+#import "InAppSettingsTableCell.h"
 
 @implementation InAppSettingsTableCell
 
@@ -18,54 +18,53 @@
 
 #pragma mark Cell lables
 
-- (void)setTitle{
+- (void)setTitle {
     self.titleLabel.text = [self.setting localizedTitle];
 }
 
-- (void)setDetail{
+- (void)setDetail {
     [self setDetail:[self.setting getValue]];
 }
 
-- (void)setDetail:(NSString *)detail{
+- (void)setDetail:(NSString *)detail {
     //the detail is not localized
     self.valueLabel.text = detail;
 }
 
-- (void)setDisclosure:(BOOL)disclosure{
-    if(disclosure){
+- (void)setDisclosure:(BOOL)disclosure {
+    if (disclosure) {
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    else{
+    } else {
         self.accessoryType = UITableViewCellAccessoryNone;
     }
 }
 
-- (void)setCanSelectCell:(BOOL)value{
-    if(value){
+- (void)setCanSelectCell:(BOOL)value {
+    if (value) {
         self.selectionStyle = UITableViewCellSelectionStyleBlue;
-    }else{
+    } else {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     canSelectCell = value;
 }
 
-- (void)layoutSubviews{
-	[super layoutSubviews];
+- (void)layoutSubviews {
+    [super layoutSubviews];
 
     // title view
 //iOS7: Updating sizeWithFont (depreciated) to sizeWithAttributes
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
-        CGSize titleSize = [self.titleLabel.text sizeWithAttributes:
-                             @{NSFontAttributeName:[UIFont systemFontOfSize:InAppSettingsFontSize]}];
+    CGSize titleSize = [self.titleLabel.text sizeWithAttributes:
+                        @{NSFontAttributeName:[UIFont systemFontOfSize:InAppSettingsFontSize]}];
 #else
-        CGSize titleSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font];
+    CGSize titleSize = [self.titleLabel.text sizeWithFont:self.titleLabel.font];
 #endif
 
     CGFloat maxTitleWidth = InAppSettingsCellTitleMaxWidth;
-    if([self.setting isType:InAppSettingsPSToggleSwitchSpecifier]){
+    if ([self.setting isType:InAppSettingsPSToggleSwitchSpecifier]) {
         maxTitleWidth = InAppSettingsCellTitleMaxWidth-(InAppSettingsCellToggleSwitchWidth+InAppSettingsCellPadding);
     }
-    if(titleSize.width > maxTitleWidth){
+    if (titleSize.width > maxTitleWidth) {
         titleSize.width = maxTitleWidth;
     }
 
@@ -87,15 +86,15 @@
 
     CGFloat titleRightSide = CGRectGetWidth(self.titleLabel.bounds)+InAppSettingsTablePadding;
     CGFloat valueMaxWidth = CGRectGetWidth(self.contentView.bounds)-(titleRightSide+InAppSettingsTablePadding+InAppSettingsCellPadding*3);
-    if(valueSize.width > valueMaxWidth){
+    if (valueSize.width > valueMaxWidth) {
         valueSize.width = valueMaxWidth;
     }
 
-    if(!(InAppSettingsUseNewMultiValueLocation) && [self.setting isType:InAppSettingsPSMultiValueSpecifier] && [[self.setting localizedTitle] length] == 0) {
+    if (!(InAppSettingsUseNewMultiValueLocation) && [self.setting isType:InAppSettingsPSMultiValueSpecifier] && [[self.setting localizedTitle] length] == 0) {
         valueFrame.origin.x = InAppSettingsCellPadding;
-    }else{
+    } else {
         valueFrame.origin.x = CGRectGetWidth(self.contentView.bounds)-valueSize.width-InAppSettingsCellPadding;
-        if(titleRightSide >= valueFrame.origin.x){
+        if (titleRightSide >= valueFrame.origin.x) {
             valueFrame.origin.x = titleRightSide;
         }
     }
@@ -103,9 +102,9 @@
     valueFrame.size.width = CGRectGetWidth(self.contentView.bounds)-valueFrame.origin.x-InAppSettingsCellPadding;
 
     //if the width is less then 0 just hide the label
-    if(valueFrame.size.width <= 0){
+    if (valueFrame.size.width <= 0) {
         self.valueLabel.hidden = YES;
-    }else{
+    } else {
         self.valueLabel.hidden = NO;
     }
     valueFrame.size.height = valueSize.height;
@@ -114,28 +113,28 @@
 
 #pragma mark -
 
-- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier{
-    //the docs say UITableViewCellStyleValue1 is used for settings, 
+- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier {
+    //the docs say UITableViewCellStyleValue1 is used for settings,
     //but it doesn't look 100% the same so we will just draw our own UILabels
     self = [super initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
-    if(self != nil){
+    if (self != nil) {
         self.canSelectCell = NO;
     }
-    
+
     return self;
 }
 
 #pragma mark implement in cell
 
-- (void)setUIValues{
+- (void)setUIValues {
     //implement this per cell type
 }
 
-- (void)setValueDelegate:(id)delegate{
+- (void)setValueDelegate:(id)delegate {
     //implement in cell
 }
 
-- (void)setupCell{
+- (void)setupCell {
     //setup title label
     self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7) {

@@ -6,15 +6,15 @@
 //  Copyright 2009 InScopeApps{+}. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "InAppSettingsSpecifier.h"
+#import <UIKit/UIKit.h>
 
 @interface InAppSettingsPSMultiValueSpecifierTable : UITableViewController
 
 @property (nonatomic, strong) InAppSettingsSpecifier *setting;
 
 - (id)initWithSetting:(InAppSettingsSpecifier *)inputSetting;
-- (id)getValue;
+- (id)  getValue;
 - (void)setValue:(id)newValue;
 
 @end

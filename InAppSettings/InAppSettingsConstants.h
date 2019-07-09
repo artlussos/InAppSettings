@@ -16,8 +16,8 @@
 #define InAppSettingsTablePadding 10.0f
 #define InAppSettingsCellTextFieldMinX 115.0f
 #define InAppSettingsCellToggleSwitchWidth 94.0f
-#define InAppSettingsTotalCellPadding InAppSettingsCellPadding*2
-#define InAppSettingsTotalTablePadding InAppSettingsTablePadding*2
+#define InAppSettingsTotalCellPadding InAppSettingsCellPadding *2
+#define InAppSettingsTotalTablePadding InAppSettingsTablePadding *2
 #define InAppSettingsCellTitleMaxWidth CGRectGetWidth(self.bounds)//-(InAppSettingsTotalTablePadding+InAppSettingsTotalCellPadding)
 #define InAppSettingsBoldFont [UIFont boldSystemFontOfSize:InAppSettingsFontSize]
 #define InAppSettingsNormalFont [UIFont systemFontOfSize:InAppSettingsFontSize]

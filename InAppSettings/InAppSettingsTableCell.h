@@ -6,8 +6,8 @@
 //  Copyright 2009 InScopeApps{+}. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "InAppSettingsSpecifier.h"
+#import <UIKit/UIKit.h>
 
 @interface InAppSettingsTableCell : UITableViewCell
 
@@ -25,6 +25,6 @@
 
 - (void)setupCell;
 - (void)setUIValues;
-- (id)initWithReuseIdentifier:(NSString *)reuseIdentifier;
+- (id)  initWithReuseIdentifier:(NSString *)reuseIdentifier;
 
 @end

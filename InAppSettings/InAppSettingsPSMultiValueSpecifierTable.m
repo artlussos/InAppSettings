@@ -71,17 +71,19 @@
             cell.textLabel.font = [UIFont fontWithName:cellValue size:InAppSettingsFontSize];
         }
     }
+
     if ([cellValue isEqual:[self getValue]]) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        cell.textLabel.textColor = [[self view] tintColor];
     } else {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        if (@available(iOS 13.0, *)) {
-            cell.textLabel.textColor = [UIColor labelColor];
-        } else {
-            cell.textLabel.textColor = [UIColor blackColor];
-        }
     }
+
+    if (@available(iOS 13.0, *)) {
+        cell.textLabel.textColor = [UIColor labelColor];
+    } else {
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
+
     return cell;
 }
 

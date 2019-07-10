@@ -21,7 +21,7 @@
 #define InAppSettingsCellTitleMaxWidth CGRectGetWidth(self.bounds)//-(InAppSettingsTotalTablePadding+InAppSettingsTotalCellPadding)
 #define InAppSettingsBoldFont [UIFont boldSystemFontOfSize:InAppSettingsFontSize]
 #define InAppSettingsNormalFont [UIFont systemFontOfSize:InAppSettingsFontSize]
-#define InAppSettingsBlue [UIColor systemRedColor];
+#define InAppSettingsBlue [UIColor systemGrayColor];
 
 #define InAppSettingsBundlePath [[NSBundle mainBundle] pathForResource:@"Settings" ofType:@"bundle"]
 #define InAppSettingsFullPlistPath(file) \

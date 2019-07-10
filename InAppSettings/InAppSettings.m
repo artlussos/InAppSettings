@@ -239,26 +239,30 @@ NSString *const InAppSettingsTapNotification = @"InAppSettingsTapNotification";
     InAppSettingsSpecifier *setting = [self settingAtIndexPath:indexPath];
     if ([setting isType:InAppSettingsPSMultiValueSpecifier]) {
         InAppSettingsPSMultiValueSpecifierTable *multiValueSpecifier = [[InAppSettingsPSMultiValueSpecifierTable alloc] initWithSetting:setting];
+
         [self.navigationController pushViewController:multiValueSpecifier animated:YES];
     } else if ([setting isType:InAppSettingsPSChildPaneSpecifier]) {
         InAppSettingsViewController *childPane = [[InAppSettingsViewController alloc] initWithFile:[setting valueForKey:InAppSettingsSpecifierFile]];
         childPane.title = [setting localizedTitle];
+
         [self.navigationController pushViewController:childPane animated:YES];
     } else if ([setting isType:InAppSettingsPSTitleValueSpecifier]) {
+
         NSString *InAppURL = [setting valueForKey:InAppSettingsSpecifierInAppURL];
         NSString *InAppTwitter = [setting valueForKey:InAppSettingsSpecifierInAppTwitter];
-        SFSafariViewController *htmlview;
+
         if (InAppURL) {
-            htmlview = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:InAppURL]];
-        } else if (InAppTwitter) {
-            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter:"]]) {
-                htmlview = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"twitter://user?screen_name=%@", InAppTwitter]]];
-            } else {
-                htmlview = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/%@", InAppTwitter]]];
-            }
-        }
-        if (htmlview) {
+            SFSafariViewController *htmlview = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:InAppURL]];
             [self presentViewController:htmlview animated:YES completion:nil];
+        } else if (InAppTwitter) {
+            NSURL *twitterURL;
+            if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter:"]]) {
+                twitterURL = [NSURL URLWithString:[NSString stringWithFormat:@"twitter://user?screen_name=%@", InAppTwitter]];
+            } else {
+                twitterURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://twitter.com/%@", InAppTwitter]];
+            }
+
+            [[UIApplication sharedApplication] openURL:twitterURL options:@{} completionHandler:nil];
         }
 
         [tableView deselectRowAtIndexPath:indexPath animated:YES];

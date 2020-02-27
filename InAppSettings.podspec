@@ -10,4 +10,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '5.0'
   s.requires_arc = true
   s.source_files = 'InAppSettings/*.{h,m}'
+  s.framework    = 'SafariServices'
 end

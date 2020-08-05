@@ -15,7 +15,7 @@
 
 - (BOOL)isSecure {
     NSNumber *isSecure = [self.setting valueForKey:@"IsSecure"];
-    if (!isSecure) {
+    if (isSecure == nil) {
         return NO;
     }
     return [isSecure boolValue];

@@ -34,6 +34,8 @@
         } else {
             self.valueLabel.font = [UIFont fontWithName:cellValue size:InAppSettingsFontSize];
         }
+    } else {
+        self.valueLabel.font = [UIFont systemFontOfSize:InAppSettingsFontSize];
     }
 }
 

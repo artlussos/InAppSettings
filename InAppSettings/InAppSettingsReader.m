@@ -13,7 +13,7 @@
 @implementation InAppSettingsReaderRegisterDefaults
 
 - (void)loadFile:(NSString *)file {
-    //if the file is not in the files list we havn't read it yet
+    //if the file is not in the files list we haven't read it yet
     NSInteger fileIndex = [self.files indexOfObject:file];
     if (fileIndex == NSNotFound) {
         [self.files addObject:file];

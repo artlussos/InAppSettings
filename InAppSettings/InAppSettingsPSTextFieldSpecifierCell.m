@@ -62,7 +62,7 @@
     [self.setting setValue:self.textField.text];
 }
 
-#pragma mark cell controlls
+#pragma mark cell controls
 
 - (void)setValueDelegate:(id)delegate {
     self.textField.delegate = delegate;
@@ -112,7 +112,7 @@
     self.textField.adjustsFontSizeToFitWidth = YES;
     self.textField.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 
-    //THIS IS NOT THE BEHAVIOR OF THE SETTINGS APP
+    //THIS IS NOT THE BEHAVIOUR OF THE SETTINGS APP
     //but we need a way to dismiss the keyboard
     self.textField.returnKeyType = UIReturnKeyDone;
 

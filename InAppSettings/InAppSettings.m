@@ -79,7 +79,7 @@ NSString *const InAppSettingsTapNotification = @"InAppSettingsTapNotification";
         self.title = NSLocalizedString(@"Settings", nil);
     }
 
-    //load settigns plist
+    //load settings plist
     if (!self.file) {
         self.file = InAppSettingsRootFile;
     }
@@ -223,7 +223,7 @@ NSString *const InAppSettingsTapNotification = @"InAppSettingsTapNotification";
     InAppSettingsTableCell *cell = ((InAppSettingsTableCell *)[tableView dequeueReusableCellWithIdentifier:cellType]);
     if (cell == nil) {
         cell = [[nsclass alloc] initWithReuseIdentifier:cellType];
-        //setup the cells controlls
+        //setup the cells controls
         [cell setupCell];
     }
 

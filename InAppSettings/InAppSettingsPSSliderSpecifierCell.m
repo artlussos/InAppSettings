@@ -44,7 +44,7 @@
 - (void)setUIValues {
     [super setUIValues];
 
-    //get the abolute path to the images
+    //get the absolute path to the images
     NSString *minImagePath = [self resolutionIndependentImagePath:[InAppSettingsBundlePath stringByAppendingPathComponent:[self.setting valueForKey:@"MinimumValueImage"]]];
     NSString *maxImagePath = [self resolutionIndependentImagePath:[InAppSettingsBundlePath stringByAppendingPathComponent:[self.setting valueForKey:@"MaximumValueImage"]] ];
 
